@@ -12,7 +12,7 @@ const fetchNews= async (
         $keywords: String
         ) {
         myQuery(
-          access_key: $ 51331bb67d71c55948ee078204252303
+          access_key: $String
           categories: $categories
           countries: "gb"
           sort:"published_desc"
@@ -49,12 +49,12 @@ const res=await fetch('https://mosonmagyarovar.stepzen.net/api/needled-eagle/__g
   next : isDynamic ? { revalidate : 0} : {revalidate : 20} ,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Apikey ${'process.env.mosonmagyarovar::stepzen.net+1000::8efadbfbebd834e44ebcf6d94564c8b0b0d1aef88996d41255e8283ed79090c7'}`,
+    Authorization: `Apikey ${'STEPZEN_KEY'}`,
   },
   body : JSON.stringify({
     query,
     variables: {
-      access_key: 'process.env.51331bb67d71c55948ee078204252303',
+      access_key: 'process.env.NEWS_API_KEY',
       categories: category,
       keywords: keywords,
     },
